@@ -1,0 +1,41 @@
+<%- include('partials/header.ejs'); -%>
+
+<div class="container py-3">
+<% notes.forEach(function(note){ %>
+<div class="row my-5 mx-3">
+    <div class="col-md-4 py-3 " id="coverBook">
+        <img class="img-thumbnail" src="https://covers.openlibrary.org/b/isbn/<%=note.isbn%>-L.jpg" alt="" width="200px">
+    </div class="">
+    <div class="col-md-8 " id="homeNote">
+        <h1 class="my-1"><%= note.title %> </h1>
+        <h2 class="my-1">Rating: <%= note.rating %></h2>
+        <div class="rating mb-3">
+            <% for(let i = 1; i <= 5; i++) { %>
+                <span class="<%= i <= note.rating ? 'checked' : '' %>">★</span>
+            <% } %>
+        </div>
+        
+        <p class="my-5">
+            <% if(note.notes){ %>
+            <% var shortText = note.notes %>
+            <% truncShortText = shortText.substring(0,300) %>
+            <%- truncShortText  %>
+            <% } else { %>
+                <em> No notes available for this book</em>
+                <% } %>
+        </p>
+        <% if(note.notes && note.notes.trim() !=''){ %>
+        <a class="btn btn-primary" href="notes/<%= note.id %>"> see notes</a>
+        <% } else{ %>
+            <a class="btn btn-primary" href="notes/<%= note.id %>"> add notes</a>
+            <% } %>
+    </div>
+
+</div>
+
+
+
+<% }); %>
+</div>
+
+<%- include('partials/footer.ejs'); -%>

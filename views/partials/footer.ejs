@@ -1,0 +1,37 @@
+</div>
+
+<script>
+    var navBarTabs = document.getElementById('navBarTabs');
+    navBarTabs.addEventListener('click', function(e) {
+        var activeTab = document.querySelector('.nav-link.active');
+        if (activeTab) {
+            activeTab.classList.remove('active');
+        }
+        e.target.classList.add('active');
+    });
+
+    window.onload = function() {
+        var url = window.location.pathname;
+        var navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(function(link) {
+            if (link.getAttribute('href') === url) {
+                link.classList.add('active');
+            }
+        });
+
+       
+        var activeTab = document.querySelector('.nav-link.active');
+        if (!activeTab && navLinks.length > 0) {
+            navLinks[0].classList.add('active');
+        }
+    };
+</script>
+
+
+
+</body>
+
+<footer class="border-top  text-center align-items-center py-2 ">
+    © <%= new Date().getFullYear(); %> made with ❤️ by Aldi Taufik | cover book by openlibrary API
+</footer>
+</html>

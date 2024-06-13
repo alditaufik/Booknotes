@@ -1,0 +1,121 @@
+body{
+    background-color: rgb(245, 245, 245);
+    color: rgb(63, 35, 5);
+}
+
+.container{
+    background-color: rgb(223, 215, 191);
+   
+}
+
+.btn{
+    background-color: rgb(63, 35, 5) !important;
+    border: none !important;
+}
+
+#editform{
+    height: 100vh;
+}
+
+/* Navbar */
+
+nav a{
+    color: rgb(63, 35, 5) !important;
+}
+nav{
+    background-color: rgb(245, 245, 245);
+}
+
+.active{
+    background-color:rgb(223, 215, 191) !important ;
+}
+
+/* star rating */
+.rating {
+    float:left;
+  }
+  
+  .rating:not(:checked) > input {
+      position:absolute;
+      top:-9999px;
+      clip:rect(0,0,0,0);
+  }
+  
+  .rating:not(:checked) > label {
+      float:right;
+      width:1em;
+      padding:0 .1em;
+      overflow:hidden;
+      white-space:nowrap;
+      cursor:pointer;
+      font-size:200%;
+      line-height:1.2;
+      color:#ddd;
+  }
+  
+  .rating:not(:checked) > label:before {
+      content: '★ ';
+  }
+  
+  .rating > input:checked ~ label {
+      color: #f70;
+  }
+  
+  .rating:not(:checked) > label:hover,
+  .rating:not(:checked) > label:hover ~ label {
+      color: #f70;
+  }
+  
+  .rating > input:checked + label:hover,
+  .rating > input:checked + label:hover ~ label,
+  .rating > input:checked ~ label:hover,
+  .rating > input:checked ~ label:hover ~ label,
+  .rating > label:hover ~ input:checked ~ label {
+      color: #f70;
+  }
+
+
+  .rating {
+    unicode-bidi: bidi-override;
+    text-align: center;
+}
+
+.rating > span {
+    display: inline-block;
+    position: relative;
+    width: 1.1em;
+}
+
+.rating > span::before {
+    content: "☆" ; 
+    position: absolute;
+   
+}
+
+.rating > span.checked::before {
+    content: "★";
+    color: #f70;
+}
+
+
+
+#homeNote > h1:nth-child(5){
+    font-size: 1rem;
+}
+
+#homeNote > h2:nth-child(5){
+    font-size: 1rem;
+}
+
+.bookcover img {
+    height: 400px;
+    object-fit:fill;
+}
+
+  
+/* .row{
+
+padding-top: 40px;
+padding-bottom: 40px;
+
+} */

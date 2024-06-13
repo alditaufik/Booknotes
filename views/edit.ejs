@@ -1,0 +1,44 @@
+<%- include('partials/header.ejs'); -%>
+
+<script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+
+
+<div class="container py-3 px-2" id="editform">
+    <h1><%= note.title %> </h1>
+    <form action="/notes/<%= note.id %>" method="POST">
+        <div class="form-group d-flex align-items-center justify-content-left">
+            <label class="h1 d-block" for="rating">Rating:</label>
+            <div class="rating d-block">
+                <input type="radio" id="star5" name="rating" value="5" <%= note.rating == 5 ? 'checked' : '' %> /><label for="star5" title="Rocks!">5 stars</label>
+                <input type="radio" id="star4" name="rating" value="4" <%= note.rating == 4 ? 'checked' : '' %> /><label for="star4" title="Pretty good">4 stars</label>
+                <input type="radio" id="star3" name="rating" value="3" <%= note.rating == 3 ? 'checked' : '' %> /><label for="star3" title="Meh">3 stars</label>
+                <input type="radio" id="star2" name="rating" value="2" <%= note.rating == 2 ? 'checked' : '' %> /><label for="star2" title="Kinda bad">2 stars</label>
+                <input type="radio" id="star1" name="rating" value="1" <%= note.rating == 1 ? 'checked' : '' %> /><label for="star1" title="Sucks big time">1 star</label>
+            </div>
+        </div>
+        
+        <div class="form-group my-1 py-2" >
+            <label class="h1" for="notes">Notes:</label>
+            <textarea id="notes" name="notes" class="form-control"><%= note.notes %></textarea>
+        </div>
+        
+        <% if(note.notes && note.notes.trim() != '') { %>
+            <button type="submit" class="btn btn-primary">Update Note</button>
+        <% } else { %>
+            <button type="submit" class="btn btn-primary">Add Note</button>
+        <% } %>
+        
+
+    </form>
+    <form action="delete" method="post" class="my-3" onsubmit="return confirm('are you sure?');">
+        <button type="submit" class="btn btn-primary"> Delete Book</button>
+    </form>
+    
+</div>
+
+<script>
+    CKEDITOR.replace('notes');
+</script>
+
+
+<%- include('partials/footer.ejs'); -%>
